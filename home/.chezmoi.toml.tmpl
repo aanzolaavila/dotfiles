@@ -1,0 +1,21 @@
+{{- $personal := promptBoolOnce . "personal" "This my personal computer" -}}
+{{- $meli := false -}}
+
+{{- $email := "anzola95avila@gmail.com" -}}
+{{- if not $personal -}}
+    {{- $meli = promptBoolOnce . "meli" "This is MELIs computer" -}}
+{{- end -}}
+
+{{- if $meli -}}
+    {{-   $email = "alejandro.anzola@mercadolibre.com.co" -}}
+{{- end -}}
+
+[data]
+    name = "Alejandro Anzola"
+    email = {{ $email | quote }}
+    personal = {{ $personal }}
+    meli = {{ $meli }}
+
+[git]
+    autoCommit = true
+    autoPush = true
