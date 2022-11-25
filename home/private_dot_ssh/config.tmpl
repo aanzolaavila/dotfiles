@@ -3,4 +3,13 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_ed25519
+{{- end -}}
+
+{{- if .meli -}}
+Include /Users/aanzola/.colima/ssh_config
+
+Host github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  IgnoreUnknown UseKeychain
 {{- end }}

@@ -5,6 +5,7 @@ set -eufo pipefail
 {{ $brews := list
      "sqlite"
      "bat"
+     "bitwarden-cli"
      "bluetoothconnector"
      "gcc"
      "btop"
@@ -125,16 +126,8 @@ set -eufo pipefail
      "visual-studio-code"
      "vlc" -}}
 
-{{ if eq .chezmoi.arch "amd64" -}}
+{{- if .personal -}}
 {{   $brews = concat $brews (list
-       "shellcheck") -}}
-{{   $casks = concat $casks (list
-       "virtualbox") -}}
-{{ end -}}
-
-{{ if .personal -}}
-{{   $brews = concat $brews (list
-       "bitwarden-cli"
        "ansible"
        "llvm"
        "graphviz"
@@ -166,7 +159,15 @@ set -eufo pipefail
        "zoom"
        "gimp"
        "whatsapp") -}}
-{{ end -}}
+{{- end -}}
+
+{{- if .meli -}}
+{{   $brews = concat $brews (list
+       "colima") -}}
+{{   $casks = concat $casks (list
+       ) -}}
+{{- end -}}
+
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "adoptopenjdk/openjdk"
