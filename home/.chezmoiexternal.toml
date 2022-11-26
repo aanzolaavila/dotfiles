@@ -12,3 +12,17 @@
   executable = true
   stripComponents = 1
   refreshPeriod = "744h"
+
+[".pyenv"]
+  type = "git-repo"
+  url = "https://github.com/pyenv/pyenv.git"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+
+[".pyenv/plugins/pyenv-virtualenv"]
+  type = "git-repo"
+  url = "https://github.com/pyenv/pyenv-virtualenv.git"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
