@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+SDKMAN_DIR="{{ .chezmoi.homeDir }}/.sdkman"
+
+if [[ ! -d "$SDKMAN_DIR" ]]; then
+  echo "sdkman is not installed, lets install it"
+  curl -s "https://get.sdkman.io" | bash
+fi

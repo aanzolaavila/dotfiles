@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+PYENV_DIR="{{- .chezmoi.homeDir -}}/.pyenv"
+
+if [[ ! -d "$PYENV_DIR/versions/{{- .versions.python2 -}}" ]]; then
+  echo "Installing python {{ .versions.python2 }}"
+  pyenv install -s {{ .versions.python2 }}
+fi
+
+if [[ ! -d "$PYENV_DIR/versions/{{- .versions.python3 -}}" ]]; then
+  echo "Installing python {{ .versions.python3 }}"
+  pyenv install -s {{ .versions.python3 }}
+fi
+
+echo "Setting python {{ .versions.python2 }} and {{ .versions.python3 }} as global defaults"
+pyenv global {{ .versions.python2 }} {{ .versions.python3 }}
+
+# Setting up neovim
+eval "$(pyenv virtualenv-init -)"
+
+if [[ ! -d "$PYENV_DIR/versions/neovim" ]]; then
+  echo "Installing neovim virtualenv with python {{ .versions.python3 }}"
+  pyenv virtualenv {{ .versions.python3 }} neovim
+
+  pyenv activate neovim
+  python3 -m pip install -U pip
+  python3 -m pip install neovim
+fi
