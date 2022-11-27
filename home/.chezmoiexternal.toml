@@ -3,7 +3,7 @@
   url = "https://github.com/tmux-plugins/tpm"
   exact = true
   stripComponents = 1
-  refreshPeriod = "168h"
+  refreshPeriod = "744h"
 
 [".local/bin/tat"]
   type = "file"
@@ -26,3 +26,13 @@
   exact = true
   stripComponents = 1
   refreshPeriod = "168h"
+
+[".zsh"]
+  type = "git-repo"
+  url = "https://github.com/aanzolaavila/.zsh"
+  refreshPeriod = "24h"
+
+[".vim"]
+  type = "git-repo"
+  url = "https://github.com/aanzolaavila/.vim"
+  refreshPeriod = "24h"
