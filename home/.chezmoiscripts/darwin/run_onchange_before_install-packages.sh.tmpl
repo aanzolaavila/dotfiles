@@ -61,6 +61,7 @@ set -eufo pipefail
      "wget"
      "youtube-dl"
      "zplug"
+     "sdkman-cli"
      "xwmx/taps/nb" -}}
 {{ $casks := list
      "adoptopenjdk8"
@@ -179,6 +180,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "xwmx/taps"
+tap "sdkman/tap"
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
