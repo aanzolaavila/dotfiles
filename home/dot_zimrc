@@ -14,6 +14,8 @@ zmodule exa
 zmodule fzf
 zmodule asdf
 
+zmodule joke/zim-yq
+
 zmodule ohmyzsh/ohmyzsh \
 	-f 'plugins/git' -s 'plugins/git/git.plugin.zsh' \
 	-f 'plugins/gitignore' -s 'plugins/gitignore/gitignore.plugin.zsh' \
