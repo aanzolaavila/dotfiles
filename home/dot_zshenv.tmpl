@@ -2,5 +2,6 @@
 export AT_MELI=true
 {{- end }}
 
-export ZIM_HOME="{{ .chezmoi.homeDir }}/{{ .locations.zim }}"
+export ZIM_HOME="$HOME/{{ .locations.zim }}"
+export PYENV_ROOT="$HOME/.pyenv"
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
