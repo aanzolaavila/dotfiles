@@ -1,8 +1,9 @@
-{{- if .meli -}}
+{{- if .meli }}
 export AT_MELI=true
-{{- end }}
-
+{{ end -}}
 export ZSH_LOCATION="$HOME/.zsh"
 export ZIM_HOME="$HOME/{{ .locations.zim }}"
 export PYENV_ROOT="$HOME/.pyenv"
+{{- if eq .chezmoi.os "darwin" }}
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+{{ end -}}
