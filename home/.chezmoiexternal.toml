@@ -29,12 +29,12 @@
 
 [".zsh"]
   type = "git-repo"
-  url = "https://github.com/aanzolaavila/.zsh"
+  url = "https://github.com/{{- .github.user -}}/.zsh"
   refreshPeriod = "24h"
 
 [".vim"]
   type = "git-repo"
-  url = "https://github.com/aanzolaavila/.vim"
+  url = "https://github.com/{{- .github.user -}}/.vim"
   refreshPeriod = "24h"
 
 [".vim/autoload/plug.vim"]
