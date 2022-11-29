@@ -1,6 +1,8 @@
 {{- if .meli }}
 export AT_MELI=true
 {{ end -}}
+export PATH="/opt/homebrew/bin:${PATH}"
+export PATH="$HOME/.local/bin:${PATH}"
 export ZSH_LOCATION="$HOME/.zsh"
 export ZIM_HOME="$HOME/{{ .locations.zim }}"
 export PYENV_ROOT="$HOME/.pyenv"
