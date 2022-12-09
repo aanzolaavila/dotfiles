@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ if .personal -}}
+if ! command -v rclone &> /dev/null
+then
+  curl https://rclone.org/install.sh | bash
+fi
+
+{{ if eq .chezmoi.os "darwin" -}}
+rclone completion zsh > $(brew --prefix)/share/zsh/site-functions/_rclone
+{{- end }}
+{{ end -}}
