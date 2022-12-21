@@ -9,3 +9,7 @@
 	editor = nvim
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+{{- if .meli }}
+[url "git@github-meli.com:mercadolibre"]
+	insteadOf = https://github.com/mercadolibre
+{{ end -}}
