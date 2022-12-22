@@ -1,7 +1,7 @@
 {{- $personal := promptBoolOnce . "personal" "This my personal computer" -}}
 {{- $meli := false -}}
 
-{{- $email := "anzola95avila@gmail.com" -}}
+{{- $email := "me@alejandroanzola.info" -}}
 {{- if not $personal -}}
     {{- $meli = promptBoolOnce . "meli" "This is MELIs computer" -}}
 {{- end -}}
