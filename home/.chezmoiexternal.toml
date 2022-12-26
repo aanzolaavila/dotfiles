@@ -30,18 +30,11 @@
 [".zsh"]
   type = "git-repo"
   url = "https://github.com/{{- .github.user -}}/.zsh"
-  refreshPeriod = "24h"
 
-[".vim"]
+[".config/nvim"]
   type = "git-repo"
   url = "https://github.com/{{- .github.user -}}/.vim"
-  refreshPeriod = "24h"
-
-[".vim/autoload/plug.vim"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  exact = true
-  refreshPeriod = "168h"
+  clone.args = ["--branch", "lua"]
 
 ["{{ .locations.zim }}/zimfw.zsh"]
   type = "file"
