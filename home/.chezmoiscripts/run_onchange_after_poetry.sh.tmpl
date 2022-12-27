@@ -1,0 +1,7 @@
+{{- if .meli -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+pipx install poetry==1.2.0
+{{ end -}}

@@ -163,7 +163,8 @@ set -eufo pipefail
 
 {{- if .meli -}}
 {{   $brews = concat $brews (list
-       "colima") -}}
+       "colima"
+       "pipx") -}}
 {{   $casks = concat $casks (list
 	   "dbeaver-community"
        ) -}}
