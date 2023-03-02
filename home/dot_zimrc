@@ -13,6 +13,7 @@ zmodule archive
 zmodule exa
 zmodule fzf
 zmodule asdf
+zmodule ssh
 
 zmodule joke/zim-yq
 
