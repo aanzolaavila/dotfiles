@@ -7,9 +7,19 @@ Host *
 {{- if .meli -}}
 Include {{ .chezmoi.homeDir -}}/.colima/ssh_config
 
-Host *
+Host github.com
   User git
+  Hostname github.com
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519_meli
   IgnoreUnknown UseKeychain
+  IdentitiesOnly yes
+
+Host github-personal.com
+  User git
+  Hostname github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  IgnoreUnknown UseKeychain
+  IdentitiesOnly yes
 {{ end -}}
