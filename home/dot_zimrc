@@ -24,3 +24,6 @@ zmodule ohmyzsh/ohmyzsh \
 	-f 'plugins/terraform' -s 'plugins/terraform/terraform.plugin.zsh' \
 	-f 'plugins/wd' -s 'plugins/wd/wd.plugin.zsh' \
 	-f 'plugins/aws' -s 'plugins/aws/aws.plugin.zsh'
+
+zmodule aanzolaavila/lazyshell \
+  --source 'lazyshell.zsh'
