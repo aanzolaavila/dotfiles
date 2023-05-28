@@ -2,9 +2,15 @@
 # PLUGINS
 # ================================
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'wfxr/tmux-fzf-url'
-set -g @plugin 'christoomey/vim-tmux-navigator'
-set -g @plugin 'dracula/tmux'
+set -g @plugin 'Alkindi42/tmux-bitwarden'
+set -g @plugin 'roosta/tmux-fuzzback'
+
+# THEME
+set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'tmux-plugins/tmux-online-status'
+set -g @plugin 'tmux-plugins/tmux-net-speed'
+set -g @plugin 'jaclu/tmux-packet-loss'
 
 # ================================
 # GENERAL
@@ -15,7 +21,7 @@ set -g prefix C-s
 
 set-option -sg escape-time 10
 set-option -g focus-events on
-set-option -g history-limit 5000
+set-option -g history-limit 10000
 
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
@@ -95,24 +101,25 @@ set-option -g default-command "reattach-to-user-namespace -l zsh"
 #
 # The selected text will now be in your system clipboard.
 
-bind-key t split-window -h "nvim '+WikiJournal'"
-bind-key T split-window -h "nvim '+WikiIndex'"
+# THEME SETTINGS
+set -g @themepack 'basic'
+set -g @themepack-status-left-area-right-suffix ' » CPU #{cpu_fg_color}#{cpu_percentage}#[fg=cyan] RAM #{ram_fg_color}#{ram_percentage}#[fg=cyan]'
+set -g @themepack-status-right-area-left-format '#{download_speed}|#{upload_speed} #{online_status}#{packet_loss}'
+set -g @themepack-status-right-area-middle-format '%d-%m-%Y'
+set -g @themepack-status-right-area-right-format '%H:%M:%S'
+set -g @theme-status-right-length 80
+set -g @theme-status-left-length 60
 
-# Dracula theme
-set -g @dracula-plugins "time"
+# online_status plugin config
+set -g @online_icon "#[fg=green]ok#[fg=cyan]"
+set -g @offline_icon "#[fg=black]#[bg=red]offline!#[fg=cyan]#[bg=black]"
 
-# available colors: white, gray, dark_gray, light_purple, dark_purple, cyan, green, orange, red, pink, yellow
-set -g @dracula-border-contrast true
-set -g @dracula-show-flags true
-set -g @dracula-show-powerline true
-set -g @dracula-military-time true
-set -g @dracula-day-month true
-set -g @dracula-show-timezone false
-set -g @dracula-ping-server "google.com"
-set -g @dracula-ping-rate 5
-# it can accept `session`, `smiley`, `window`, or any character.
-set -g @dracula-show-left-icon session
-# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, network, network-bandwidth, network-ping, weather, time
-set -g @dracula-plugins "cpu-usage ram-usage network-ping time"
+# packet loss plugin config
+set -g @packet-loss-prefix "("
+set -g @packet-loss-suffix ")"
+
+# bitwarden plugin config
+set -g @bw-key 'u'
+set -g @bw-copy-to-clipboard 'on'
 
 run '~/.tmux/plugins/tpm/tpm'
