@@ -3,6 +3,7 @@
 # ================================
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'Alkindi42/tmux-bitwarden'
+set -g @plugin 'aanzolaavila/tmux-switcher'
 set -g @plugin 'roosta/tmux-fuzzback'
 
 # THEME
@@ -123,6 +124,9 @@ set -g @packet-loss-suffix ")"
 
 # network statistics plugin config
 set-option -g @tmux-network-bandwidth-padding 8
+
+# tmux-switcher config
+set-option -g @tmux-switcher-locations "$HOME/Documents"
 
 # bitwarden plugin config
 set -g @bw-key 'u'
