@@ -7,10 +7,12 @@ set -g @plugin 'roosta/tmux-fuzzback'
 
 # THEME
 set -g @plugin 'jimeh/tmux-themepack'
+{{ if not .meli -}}
 set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-online-status'
 set -g @plugin 'xamut/tmux-network-bandwidth'
 set -g @plugin 'jaclu/tmux-packet-loss'
+{{- end}}
 set -g @plugin 'MunifTanjim/tmux-mode-indicator'
 set -g @plugin 'tmux-plugins/tmux-cowboy'
 
@@ -109,8 +111,12 @@ set-option -g default-command "reattach-to-user-namespace -l zsh"
 # THEME SETTINGS
 set -g @themepack 'basic'
 set -g @themepack-status-left-area-left-format '#{tmux_mode_indicator}'
+{{ if .meli -}}
+set -g @themepack-status-left-area-right-suffix ' #{pomodoro_status}'
+{{ else }}
 set -g @themepack-status-left-area-right-suffix ' » CPU #{cpu_fg_color}#{cpu_percentage}#[fg=cyan] RAM #{ram_fg_color}#{ram_percentage}#[fg=cyan] #{pomodoro_status}'
 set -g @themepack-status-right-area-left-format '#{packet_loss}#{online_status} #{network_bandwidth}'
+{{- end}}
 set -g @themepack-status-right-area-middle-format '%d-%m-%Y'
 set -g @themepack-status-right-area-right-format '%H:%M:%S'
 set -g @theme-status-right-length 80
@@ -131,8 +137,8 @@ set-option -g @tmux-network-bandwidth-padding 8
 set-option -g @tmux-switcher-locations "$HOME/code"
 
 # pomodoro plugin
-set -g @pomodoro_start 'u'
-set -g @pomodoro_cancel 'U'
+set -g @pomodoro_start 'y'
+set -g @pomodoro_cancel 'Y'
 set -g @pomodoro_notifications 'on'
 set -g @pomodoro_sound 'on'
 
