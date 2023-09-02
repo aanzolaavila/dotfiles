@@ -7,8 +7,7 @@ zmodule zsh-users/zsh-history-substring-search
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
 
-zmodule aanzolaavila/pure --source async.zsh
-zmodule asciiship
+zmodule sindresorhus/pure --source async.zsh --source pure.zsh
 zmodule duration-info
 zmodule git-info
 zmodule prompt-pwd
