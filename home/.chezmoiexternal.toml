@@ -34,6 +34,12 @@
   exact = true
   refreshPeriod = "168h"
 
+[".config/kitty/theme.conf"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/dexpota/kitty-themes/master/themes/Duotone_Dark.conf"
+  exact = true
+  refreshPeriod = "744h"
+
 {{- if eq .chezmoi.os "darwin" }}
 [".iterm2_shell_integration.zsh"]
   type = "file"
