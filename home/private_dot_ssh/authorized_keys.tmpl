@@ -1,3 +1,6 @@
 {{ range (gitHubKeys .github.user) -}}
 {{   .Key }}
 {{ end -}}
+{{ if .meli }}
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCdSuFGUKscLBs9joVjkW3RR+7zvEqA254g4SZCZ2EdnhOVzEEe2EgSqpugoBgN66sD9x28DoP7+Pr7zHZJ7FWIXbd5s0UQcVmFFmEgu4BxoWjfxAJAf3RafOpJgzfryv05kNP9YpKxy6F3EhY34Cj30+ezoCdlZ36NILZUOcfolWe1dExxDLvE5E3sQQUhyhz4Gbc1Ghr0yWRPoph3hp/JOXto6/OxIAyD8aIVNmtAcAyHFr836VRykagRe+H+EIP+n7WHrkriNlf73GaUYeCsD1hloo2uPNmq3TyiHnfQ/q5qW/iwxadPb5zsP2rF8toB9uftBki8iMuO8cfc10siCLsPavgxSRM6bcj9tOzBsW0SBMBy/O/mzEyR60Ny52xjH8ilRCH/eFFfctV8IWgTdYNro8x1Ruq9IsO6tjj/qf+1/sK/IJ+UShi/7Y8TJsSptYyYp/woYVYHGhtl+ZFC/WF6YwbSrYTIiuSaV8NrNI5Q/f2wW6AgNAaCTVbRpYFmu1WTTDXewgFrZE+bC8CUxu6uJRi90Js49IBLP/nOliq/TsS/r52ZCqLz55/6gEEP4q6CqaN3Sn3i8VAQYurR4diyovxKbNEkXoocY8Jq202fyzM5rXVs5P5T0kvl+rN4UBqIFag64ucWEz7kYlRaa/1MiN+0sk3M2ebPKGbLwQ==
+{{ end -}}
