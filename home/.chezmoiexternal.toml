@@ -40,6 +40,12 @@
   exact = true
   refreshPeriod = "744h"
 
+["scripts/kattis/submit.py"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/Kattis/kattis-cli/master/submit.py"
+  exact = true
+  refreshPeriod = "744h"
+
 {{- if eq .chezmoi.os "darwin" }}
 [".iterm2_shell_integration.zsh"]
   type = "file"
