@@ -1,0 +1,13 @@
+[font]
+
+[font.normal]
+family = "Inconsolata Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "Inconsolata Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "Inconsolata Nerd Font Mono"
+style = "Italic"
