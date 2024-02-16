@@ -4,24 +4,22 @@ set -eufo pipefail
 
 {{ $brews := list
      "asciinema"
-     "sqlite"
      "bat"
      "bitwarden-cli"
      "bluetoothconnector"
-     "gcc"
      "btop"
-     "python@3.9"
-     "ruby"
+     "caarlos0/tap/timer"
      "cocoapods"
      "coreutils"
      "cowsay"
+     "dust"
      "entr"
      "exa"
      "fd"
-     "lame"
      "fortune"
      "fswatch"
      "fzf"
+     "gcc"
      "ghostscript"
      "git"
      "gnupg"
@@ -32,13 +30,13 @@ set -eufo pipefail
      "iftop"
      "imagemagick"
      "jq"
-     "yq"
+     "lame"
      "lolcat"
      "lua"
+     "luarocks"
      "magic-wormhole"
      "mas"
      "mockery"
-     "protobuf"
      "mysql"
      "mysql-client"
      "ncdu"
@@ -48,29 +46,33 @@ set -eufo pipefail
      "p7zip"
      "parallel"
      "pipenv"
+     "protobuf"
+     "python@3.9"
      "reattach-to-user-namespace"
      "ripgrep"
      "rmlint"
+     "ruby"
      "rust"
+     "sdkman-cli"
      "smartmontools"
+     "sqlite"
      "ssh-copy-id"
-     "terminal-notifier"
      "tealdeer"
+     "terminal-notifier"
      "tmux"
      "tree"
      "uncrustify"
      "vifm"
      "watch"
      "wget"
+     "xwmx/taps/nb"
      "youtube-dl"
+     "yq"
      "zplug"
-     "sdkman-cli"
-     "luarocks"
-     "dust"
-     "caarlos0/tap/timer"
-     "xwmx/taps/nb" -}}
+     -}}
 {{ $casks := list
-     "adoptopenjdk8"
+     "alacritty"
+     "wezterm"
      "docker"
      "font-3270-nerd-font"
      "font-agave-nerd-font"
@@ -131,15 +133,17 @@ set -eufo pipefail
      "slack"
      "spotify"
      "visual-studio-code"
-     "vlc" -}}
+     "vlc"
+     -}}
 
 {{- if .personal -}}
 {{   $brews = concat $brews (list
        "ansible"
-       "llvm"
-       "graphviz"
        "ffmpeg"
-       "hugo") -}}
+       "graphviz"
+       "hugo"
+       "llvm"
+       ) -}}
 {{   $casks = concat $casks (list
        "android-platform-tools"
        "android-studio"
@@ -147,7 +151,6 @@ set -eufo pipefail
        "clion"
        "eqmac"
        "flutter"
-       "teamviewer"
        "loopback"
        "ngrok"
        "notion"
@@ -158,16 +161,18 @@ set -eufo pipefail
        "rekordbox"
        "signal"
        "skype"
-       "wireshark"
+       "teamviewer"
        "telegram"
+       "wireshark"
        "zoom"
-       "whatsapp") -}}
+       ) -}}
 {{- end -}}
 
 {{- if .meli -}}
 {{   $brews = concat $brews (list
        "colima"
-       "pipx") -}}
+       "pipx"
+       ) -}}
 {{   $casks = concat $casks (list
 	   "dbeaver-community"
        ) -}}
@@ -175,14 +180,11 @@ set -eufo pipefail
 
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
-tap "adoptopenjdk/openjdk"
 tap "aws/tap"
 tap "graalvm/tap"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "xwmx/taps"
 tap "sdkman/tap"
 {{ range ($brews | sortAlpha | uniq) -}}
