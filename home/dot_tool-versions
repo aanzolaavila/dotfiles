@@ -2,7 +2,7 @@ awscli 2.14.4
 maven 3.9.1
 terraform 1.6.5
 golang 1.21.4
-neovim 0.9.4
+neovim nightly
 nodejs 21.2.0
 cmake 3.27.9
 make 4.4.1
