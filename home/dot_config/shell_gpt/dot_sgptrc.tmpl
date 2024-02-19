@@ -36,7 +36,7 @@ DISABLE_STREAMING=false
 CODE_THEME=default
 
 # Path to a directory with functions.
-OPENAI_FUNCTIONS_PATH=$HOME/.config/shell_gpt/functions
+OPENAI_FUNCTIONS_PATH={{ .chezmoi.homeDir -}}/.config/shell_gpt/functions
 
 # Print output of functions when LLM uses them.
 SHOW_FUNCTIONS_OUTPUT=false
@@ -45,4 +45,4 @@ SHOW_FUNCTIONS_OUTPUT=false
 OPENAI_USE_FUNCTIONS=true
 
 # Where to store the roles
-ROLE_STORAGE_PATH=$HOME/.config/shell_gpt/roles
+ROLE_STORAGE_PATH={{ .chezmoi.homeDir -}}/.config/shell_gpt/roles
