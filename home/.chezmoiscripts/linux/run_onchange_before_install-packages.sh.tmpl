@@ -1,0 +1,16 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.linux.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.linux.brews.default -}}
+brew {{ . | quote }}
+{{ end -}}
+
+EOF
+{{ end -}}

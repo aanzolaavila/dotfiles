@@ -4,30 +4,3 @@ Host *
   UseKeychain yes
   IdentityFile ~/.ssh/id_ed25519
 {{ end -}}
-{{- if .meli -}}
-Include {{ .chezmoi.homeDir -}}/.colima/ssh_config
-
-Host github.com
-  User git
-  Hostname github.com
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519_meli
-  IgnoreUnknown UseKeychain
-  IdentitiesOnly yes
-
-Host github.com-emu
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_ed25519_melisource
-  IdentitiesOnly yes
-  AddKeysToAgent yes
-  UseKeychain yes
-
-Host github-personal.com
-  User git
-  Hostname github.com
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519
-  IgnoreUnknown UseKeychain
-  IdentitiesOnly yes
-{{ end -}}

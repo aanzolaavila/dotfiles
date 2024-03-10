@@ -26,7 +26,7 @@
 [".config/nvim"]
   type = "git-repo"
   url = "https://github.com/{{- .github.user -}}/.vim"
-  clone.args = ["--branch", "lua"]
+  clone.args = ["--branch", "main"]
 
 ["{{ .locations.zim }}/zimfw.zsh"]
   type = "file"

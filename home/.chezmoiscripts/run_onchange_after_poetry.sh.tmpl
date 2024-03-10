@@ -1,8 +1,0 @@
-{{- if .meli -}}
-#!/bin/bash
-
-set -eufo pipefail
-
-pipx install poetry==1.1.15
-poetry config experimental.new-installer false
-{{ end -}}

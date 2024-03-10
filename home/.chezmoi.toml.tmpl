@@ -1,13 +1,13 @@
 {{- $personal := promptBoolOnce . "personal" "This my personal computer" -}}
-{{- $meli := false -}}
+{{- $work := false -}}
 
 {{- $email := "me@alejandroanzola.info" -}}
 {{- if not $personal -}}
-    {{- $meli = promptBoolOnce . "meli" "This is MELIs computer" -}}
+    {{- $work = promptBoolOnce . "work" "This my work computer" -}}
 {{- end -}}
 
-{{- if $meli -}}
-    {{-   $email = "alejandro.anzola@mercadolibre.com.co" -}}
+{{- if $work -}}
+    {{- $email = "aanzolaavila@creativa77.com.ar" -}}
 {{- end -}}
 
 [hooks.read-source-state.pre]
@@ -17,7 +17,7 @@
     name = "Alejandro Anzola"
     email = {{ $email | quote }}
     personal = {{ $personal }}
-    meli = {{ $meli }}
+    work = {{ $work }}
 [data.versions]
     python2 = "2.7.18"
     python3 = "3.11.0"

@@ -7,6 +7,17 @@ eval "$(pyenv init -)"
 
 PYENV_DIR="{{- .chezmoi.homeDir -}}/.pyenv"
 
+# Ubuntu missing dependencies
+if [[ "$(uname -s)" == "Linux" ]]; then
+  dist="$(lsb_release --id --short)"
+  if [[ "${dist}" == "Ubuntu" ]]; then
+    sudo apt update \
+    && sudo apt install build-essential libssl-dev zlib1g-dev \
+      libbz2-dev libreadline-dev libsqlite3-dev curl \
+      libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+  fi
+fi
+
 if [[ ! -d "$PYENV_DIR/versions/{{- .versions.python2 -}}" ]]; then
   echo "Installing python {{ .versions.python2 }}"
   pyenv install -s {{ .versions.python2 }}
@@ -30,6 +41,7 @@ if [[ ! -d "$PYENV_DIR/versions/neovim" ]]; then
   pyenv activate neovim
   python3 -m pip install -U pip
   python3 -m pip install neovim
+  pyenv deactivate
 fi
 
 python3 -m pip install shell-gpt
