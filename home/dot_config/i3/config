@@ -47,6 +47,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/cbacklight --dec
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/cbacklight --inc 2 # increase screen brightness
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/cbacklight --dec 2 # decrease screen brightness
 
+# spotify
+bindsym $mod+i exec --no-startup-id ~/.config/i3/spotify-control.sh play
+bindsym $mod+o exec --no-startup-id ~/.config/i3/spotify-control.sh prev
+bindsym $mod+p exec --no-startup-id ~/.config/i3/spotify-control.sh next
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
