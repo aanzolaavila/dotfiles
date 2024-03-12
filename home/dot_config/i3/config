@@ -231,6 +231,7 @@ bindsym $mod+Control+Shift+x mode "$mode_display"
 # Zoom workaround for screen share annotate, so that screen does not go black
 # Reference: https://www.reddit.com/r/i3wm/comments/n3wzaj/fix_for_black_screen_in_zoom_when_annotating/
 exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
+exec --no-startup-id variety
 
 for_window [class="Todoist"] move container to workspace $ws9
 for_window [class="Spotify"] move container to workspace $ws10
