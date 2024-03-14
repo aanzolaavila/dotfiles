@@ -17,7 +17,38 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:Terminus 9
+
+# gaps - requires version >= 4.22
+smart_gaps on
+gaps inner 15
+gaps outer 3
+
+set $base00 #101218
+set $base01 #0F0F0F
+set $base02 #13151B
+set $base03 #484D61
+set $base04 #C0C5CE
+set $base05 #D1D4E0
+set $base06 #C9CCDB
+set $base07 #FFFFFF
+set $base08 #EE829F
+set $base09 #F99170
+set $base0A #FFEFCC
+set $base0B #A5FFE1
+set $base0C #97E0FF
+set $base0D #97BBF7
+set $base0E #C0B7F9
+set $base0F #FCC09E
+set $base10 #505250
+
+# Widow Colours
+#                       border  background text    indicator
+client.focused          $base10 $base10    $base07 $base10
+client.focused_inactive $base02 $base02    $base03 $base02
+client.unfocused        $base02 $base02    $base03 $base02
+client.urgent           $base02 $base08    $base00 $base02
+client.placeholder      $base02 $base08    $base00 $base02
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -194,6 +225,19 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+	    font pango:Inconsolata 8, FontAwesome 8
+            strip_workspace_numbers no
+	    tray_output primary
+            colors {
+                  separator $base03
+                  background $base01
+                  statusline $base05
+#                                    border  background text
+                  focused_workspace  $base01 $base01    $base07
+                  active_workspace   $base01 $base02    $base03
+                  inactive_workspace $base01 $base01    $base03
+                  urgent_workspace   $base01 $base01    $base08
+	}
 }
 
 bindsym $mod+x [urgent=latest] focus
@@ -238,6 +282,7 @@ bindsym $mod+Control+Shift+x mode "$mode_display"
 exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
 exec --no-startup-id variety
 
+for_window [class="kitty"] border pixel 2
 for_window [class="Todoist"] move container to workspace $ws9
 for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="zoom"] floating enable
