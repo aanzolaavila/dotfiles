@@ -288,3 +288,5 @@ for_window [class="kitty"] border pixel 2
 for_window [class="Todoist"] move container to workspace $ws9
 for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="zoom"] floating enable
+# Google Chrome Live Caption window
+for_window [title="Live Caption"] floating enable
