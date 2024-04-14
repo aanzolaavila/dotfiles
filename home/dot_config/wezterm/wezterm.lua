@@ -15,7 +15,7 @@ end)
 config.max_fps = 120
 config.animation_fps = 1 -- disable animations
 
-config.window_background_image = os.getenv('HOME') .. '/.config/wezterm/background'
+config.window_background_image = os.getenv('HOME') .. '/background.png'
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 40
 config.window_background_image_hsb = {
