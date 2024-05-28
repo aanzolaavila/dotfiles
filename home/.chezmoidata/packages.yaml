@@ -4,9 +4,10 @@ packages:
       - "wez/wezterm-linuxbrew"
     brews:
       default:
+        # - 'bitwarden-cli'
+        # - 'rust'
         - "ansible"
         - "bat"
-        # - 'bitwarden-cli'
         - "btop"
         - "cowsay"
         - "entr"
@@ -46,12 +47,12 @@ packages:
         - "p7zip"
         - "parallel"
         - "pipenv"
+        - "pipx"
         - "protobuf"
         - "python@3.9"
         - "ripgrep"
         - "rmlint"
         - "ruby"
-        # - 'rust'
         - "smartmontools"
         - "sqlite"
         - "ssh-copy-id"
@@ -71,7 +72,6 @@ packages:
       - "graalvm/tap"
       - "hashicorp/tap"
       - "homebrew/bundle"
-      - "homebrew/cask-fonts"
       - "xwmx/taps"
       - "sdkman/tap"
     brews:
@@ -119,6 +119,7 @@ packages:
         - "p7zip"
         - "parallel"
         - "pipenv"
+        - "pipx"
         - "protobuf"
         - "python@3.9"
         - "reattach-to-user-namespace"
