@@ -34,7 +34,7 @@
   exact = true
   refreshPeriod = "168h"
 
-[".config/kitty/theme.conf"]
+[".config/kitty/duotone-dark-theme.conf"]
   type = "file"
   url = "https://raw.githubusercontent.com/dexpota/kitty-themes/master/themes/Duotone_Dark.conf"
   exact = true
