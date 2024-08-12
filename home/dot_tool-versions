@@ -7,3 +7,4 @@ nodejs 22.5.1
 cmake 3.27.9
 make 4.4.1
 websocat 1.11.0
+java adoptopenjdk-jre-21.0.4+7.0.LTS
