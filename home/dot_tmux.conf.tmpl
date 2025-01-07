@@ -52,8 +52,11 @@ bind C-l "resize-pane -R 10"
 set -g mouse on
 
 # Set 256 colors
+{{ if eq .chezmoi.os "linux" -}}
+# NOTE: Kitty works better than Ghostty on linux
 set -g default-terminal "xterm-kitty"
 set-option -sa terminal-features ',xterm-kitty:RGB'
+{{- end }}
 set-option -g status-keys "emacs"
 
 # (Un)Zoom
