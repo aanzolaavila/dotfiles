@@ -46,6 +46,12 @@
   exact = true
   refreshPeriod = "744h"
 
+[".zellij/plugins/zjquit.wasm"]
+  type = "file"
+  url = "https://github.com/cristiand391/zj-quit/releases/download/0.3.1/zj-quit.wasm"
+  exact = true
+  refreshPeriod = "744h"
+
 {{- if eq .chezmoi.os "darwin" }}
 [".iterm2_shell_integration.zsh"]
   type = "file"

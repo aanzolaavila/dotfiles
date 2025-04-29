@@ -145,6 +145,7 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt F" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         bind "Alt h" { MoveFocus "left"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
@@ -152,7 +153,6 @@ keybinds clear-defaults=true {
         bind "Alt l" { MoveFocus "right"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
-        bind "Alt F" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         bind "Alt t" { NewTab; SwitchToMode "locked"; }
         bind "Alt v" {
             LaunchOrFocusPlugin "session-manager" {
@@ -166,7 +166,11 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
-        bind "Ctrl q" { Quit; }
+        bind "Ctrl q" {
+          LaunchOrFocusPlugin "zj-quit" {
+            floating true
+          }
+        }
     }
     shared_except "locked" "entersearch" {
         bind "enter" { SwitchToMode "locked"; }
@@ -248,6 +252,11 @@ plugins {
         hide_frame_except_for_scroll     "true"
         hide_frame_except_for_fullscreen "true"
     } */
+
+    zj-quit location="file:~/.zellij/plugins/zjquit.wasm" {
+        confirm_key "q"
+        cancel_key "Esc"
+    }
 }
 
 // Plugins to load in the background when a new session starts
