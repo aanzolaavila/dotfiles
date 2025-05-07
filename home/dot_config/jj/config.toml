@@ -1,0 +1,6 @@
+[user]
+name = "Alejandro Anzola"
+email = "me@alejandroanzola.info"
+
+[ui]
+default-command = "log"
