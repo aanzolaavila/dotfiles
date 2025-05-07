@@ -24,4 +24,5 @@ zmodule ohmyzsh/ohmyzsh \
 	-f 'plugins/wd' -s 'plugins/wd/wd.plugin.zsh' \
 	-f 'plugins/aws' -s 'plugins/aws/aws.plugin.zsh' \
 	-f 'plugins/urltools' -s 'plugins/urltools/urltools.plugin.zsh' \
-	-f 'plugins/jj' -s 'plugins/jj/jj.plugin.zsh'
+	-f 'plugins/jj' -s 'plugins/jj/jj.plugin.zsh' \
+	-f 'plugins/aliases' -s 'plugins/aliases/aliases.plugin.zsh'
