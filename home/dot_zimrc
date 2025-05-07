@@ -22,4 +22,6 @@ zmodule ohmyzsh/ohmyzsh \
 	-f 'plugins/gitignore' -s 'plugins/gitignore/gitignore.plugin.zsh' \
 	-f 'plugins/terraform' -s 'plugins/terraform/terraform.plugin.zsh' \
 	-f 'plugins/wd' -s 'plugins/wd/wd.plugin.zsh' \
-	-f 'plugins/aws' -s 'plugins/aws/aws.plugin.zsh'
+	-f 'plugins/aws' -s 'plugins/aws/aws.plugin.zsh' \
+	-f 'plugins/urltools' -s 'plugins/urltools/urltools.plugin.zsh' \
+	-f 'plugins/jj' -s 'plugins/jj/jj.plugin.zsh'
