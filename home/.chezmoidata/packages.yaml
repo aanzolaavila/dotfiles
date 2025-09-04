@@ -99,6 +99,7 @@ packages:
         - "gomplate"
         - "grep"
         - "htop"
+        - "hurl"
         - "iftop"
         - "imagemagick"
         - "jq"
