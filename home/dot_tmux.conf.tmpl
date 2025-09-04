@@ -2,7 +2,6 @@
 # PLUGINS
 # ================================
 set -g @plugin 'tmux-plugins/tpm' # tmux package manager
-set -g @plugin 'omerxx/tmux-sessionx' # session manager
 
 # to fuzzy search tmux backwards
 # prefix-? = Search
@@ -121,20 +120,13 @@ set -g @themepack-status-right-area-right-format '%H:%M:%S'
 set -g @theme-status-right-length 80
 set -g @theme-status-left-length 60
 
-# tmux-sessionX plugin
-set -g @sessionx-bind 'v'
-set -g @sessionx-preview-enabled 'false'
-set -g @sessionx-filter-current 'false'
-set -g @sessionx-x-path '{{- .chezmoi.homeDir -}}/code'
-set -g @sessionx-zoxide-mode 'off'
-
 # online_status plugin config
 set -g @online_icon "#[fg=green]ok#[fg=cyan]"
 set -g @offline_icon "#[fg=black]#[bg=red]offline!#[fg=cyan]#[bg=black]"
 
 # packet loss plugin config
-set -g @packet-loss-prefix "("
-set -g @packet-loss-suffix ")"
+set -g @packet-loss-prefix "<"
+set -g @packet-loss-suffix ">"
 
 # network statistics plugin config
 set-option -g @tmux-network-bandwidth-padding 8
