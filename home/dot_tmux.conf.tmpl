@@ -32,7 +32,9 @@ set -g status-interval 1
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
 bind-key i split-window -v -c '#{pane_current_path}'
+bind-key % split-window -v -c '#{pane_current_path}'
 bind-key p split-window -h -c '#{pane_current_path}'
+bind-key '"' split-window -h -c '#{pane_current_path}'
 
 is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
 # bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
