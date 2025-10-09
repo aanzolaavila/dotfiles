@@ -31,9 +31,7 @@ set -g status-interval 1
 
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
-bind-key i split-window -v -c '#{pane_current_path}'
 bind-key % split-window -v -c '#{pane_current_path}'
-bind-key p split-window -h -c '#{pane_current_path}'
 bind-key '"' split-window -h -c '#{pane_current_path}'
 
 is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
@@ -43,6 +41,9 @@ bind h "select-pane -L"
 bind j "select-pane -D"
 bind k "select-pane -U"
 bind l "select-pane -R"
+
+bind-key u select-window -p
+bind-key p select-window -n
 
 # Coarse adjustment (5 or 10 cursor cells per bump)
 bind C-h "resize-pane -L 30"
