@@ -3,4 +3,12 @@ name = "Alejandro Anzola"
 email = "me@alejandroanzola.info"
 
 [ui]
+editor = "nvim"
 default-command = "log"
+diff-editor = ["nvim", "-d", "$left", "$right"]
+
+[merge-tools.neovim]
+diff-invocation-mode = "file-by-file"
+
+[remotes.origin]
+auto-track-bookmarks = "glob:aanzola/*"
