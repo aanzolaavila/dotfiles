@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.os "darwin" }}
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+{{ end -}}
+
+source $HOME/.zsh/init.zsh

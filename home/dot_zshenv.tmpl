@@ -4,10 +4,16 @@ export AT_WORK=true
 export PATH="/opt/homebrew/bin:${PATH}"
 export PATH="$HOME/.local/bin:${PATH}"
 export ZSH_LOCATION="$HOME/.zsh"
-export ZIM_HOME="$HOME/{{ .locations.zim }}"
+export ZIM_HOME="$HOME/.cache/zim"
 export PYENV_ROOT="$HOME/.pyenv"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-{{- if eq .chezmoi.os "darwin" }}
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
-{{ end -}}
+
+# Homebrew
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+PATH_HELPER_ROOT="/opt/homebrew"
+[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
