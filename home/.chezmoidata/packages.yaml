@@ -103,6 +103,7 @@ packages:
         - "iftop"
         - "imagemagick"
         - "jq"
+        - "keidarcy/tap/e1s"
         - "lame"
         - "lolcat"
         - "lua"

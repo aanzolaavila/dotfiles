@@ -58,4 +58,11 @@
   url = "https://iterm2.com/shell_integration/zsh"
   exact = true
   refreshPeriod = "744h"
+
+[".local/bin/e2c"]
+  type = "file"
+  url = "https://github.com/nlamirault/e2c/releases/download/v0.4.0/e2c_darwin_arm64_v0.4.0"
+  exact = true
+  executable = true
+  refreshPeriod = "744h"
 {{- end }}
