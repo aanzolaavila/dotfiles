@@ -56,7 +56,18 @@ macos-option-as-alt = left
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+
+fullscreen = true
 {{- end }}
 
 # Other
 shell-integration = zsh
+
+font-family = Inconsolata LGC Nerd Font Mono
+
+background = #000000
+{{- if (joinPath .chezmoi.homeDir "background.jpg" | lstat) }}
+background-image = ~/background.jpg
+background-image-opacity = 0.3
+background-image-fit = cover
+{{- end}}
