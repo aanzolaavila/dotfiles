@@ -2,6 +2,12 @@
 name = "Alejandro Anzola"
 email = "me@alejandroanzola.info"
 
+# override user.email if the repository is located under ~/code/treble
+[[--scope]]
+--when.repositories = ["~/code/treble"]
+[--scope.user]
+email = "alejandro.anzola@treble.ai"
+
 [ui]
 editor = "nvim"
 default-command = "log"
@@ -11,3 +17,77 @@ diff-invocation-mode = "file-by-file"
 
 [remotes.origin]
 auto-track-bookmarks = "glob:aanzola/*"
+
+[git]
+private-commits = 'blacklist()'
+colocate = true
+
+[revset-aliases]
+'user(x)' = 'author(x) | committer(x)'
+'mine()' = 'user(glob:"*anzola*")'
+
+# Private and WIP commits that should never be pushed anywhere. Often part of
+# work-in-progress merge stacks.
+'wip()' = 'description(glob:"wip:*")'
+'private()' = 'description(glob:"private:*")'
+'blacklist()' = 'wip() | private()'
+
+# Branches
+'my_branches()' = 'remote_bookmarks(glob:"aanzola/*")'
+'other_branches()' = 'remote_bookmarks() ~ my_branches()'
+
+# Point for my rebases
+'rebase_point()' = 'fork_point(my_branches())+ & mine()'
+
+# stack(x, n) is the set of mutable commits reachable from 'x', with 'n'
+# parents. 'n' is often useful to customize the display and return set for
+# certain operations. 'x' can be used to target the set of 'roots' to traverse,
+# e.g. @ is the current stack.
+'stack()' = 'stack(@)'
+'stack(x)' = 'stack(x, 2)'
+'stack(x, n)' = 'ancestors(reachable(x, mutable()), n)'
+
+# The current set of "open" works. It is defined as: all stacks that are
+# reachable from my working copy, or any other commit I wrote.
+# n = 1, meaning that nothing from `trunk()` is included, so all resulting
+# commits are mutable by definition.
+'open()' = 'stack(mine() | @, 1)'
+
+# the set of 'ready()' commits. defined as the set of open commits, but nothing
+# that is blacklisted or any of their children.
+#
+# often used with gerrit, which you can use to submit whole stacks at once:
+#
+# - jj gerrit send -r 'ready()' --dry-run
+'ready()' = 'open() ~ descendants(blacklist())'
+
+[aliases]
+
+# Retrunk revisions. Typically as `jj retrunk -s ...` -- notably can be used
+# with open:
+# - jj retrunk -s 'all:roots(open())'
+retrunk = ["rebase", "-d", "trunk()"]
+
+# Retrunk the current stack of work.
+reheat = ["rebase", "-d", "trunk()", "-s", "open()"]
+
+[colors]
+# Base customizations
+"normal change_id" = { bold = true, fg = "magenta" }
+"immutable change_id" = { bold = false, fg = "bright cyan" }
+
+# Used by log node template
+"node" = { bold = true }
+"node elided" = { fg = "bright black" }
+"node working_copy" = { fg = "green" }
+"node conflict" = { fg = "red" }
+"node immutable" = { fg = "bright cyan" }
+"node wip" = { fg = "yellow" }
+"node normal" = { bold = false }
+
+# Used in other various templates
+"text link" = { bold = true, fg = "magenta" }
+"text warning" = { bold = true, fg = "red" }
+
+# Bookmarks
+"bookmarks" = { fg = "magenta", bg = "black", bold = true, reverse = true }
