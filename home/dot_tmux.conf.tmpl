@@ -24,7 +24,7 @@ set -g @plugin 'tmux-plugins/tmux-cowboy'
 # ================================
 # GENERAL
 # ================================
-set-option -sg escape-time 10
+set-option -sg escape-time 0
 set-option -g focus-events on
 set-option -g history-limit 10000
 set -g status-interval 1
@@ -53,12 +53,22 @@ bind C-l "resize-pane -R 30"
 
 set -g mouse on
 
+# Allow programs to bypass tmux buffers for image rendering
+set -gq allow-passthrough on
+
 # Set 256 colors
 {{ if eq .chezmoi.os "linux" -}}
 # NOTE: Kitty works better than Ghostty on linux
 set -g default-terminal "xterm-kitty"
 set-option -sa terminal-features ',xterm-kitty:RGB'
 {{- end }}
+{{ if eq .chezmoi.os "darwin" -}}
+# Ensure your terminal capabilities are correctly reported
+set -as terminal-features ",xterm-256color:RGB:sixel"
+
+set -g visual-activity off
+{{- end }}
+
 set-option -g status-keys "emacs"
 
 # (Un)Zoom
