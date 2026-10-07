@@ -4,8 +4,6 @@ packages:
       - "wez/wezterm-linuxbrew"
     brews:
       default:
-        # - 'bitwarden-cli'
-        # - 'rust'
         - "ansible"
         - "bat"
         - "btop"
@@ -64,6 +62,7 @@ packages:
         - "watch"
         - "wget"
         - "yq"
+        - "zk"
         - "zplug"
   darwin:
     taps:
@@ -136,6 +135,7 @@ packages:
         - "watch"
         - "wget"
         - "yq"
+        - "zk"
         - "zplug"
       personal:
         - "ansible"
@@ -182,9 +182,9 @@ packages:
         - "font-monofur-nerd-font"
         - "font-monoid-nerd-font"
         - "font-mononoki-nerd-font"
-        - "font-mplus-nerd-font"
+        - "font-m+-nerd-font"
         - "font-noto-nerd-font"
-        - "font-open-dyslexic-nerd-font"
+        - "font-opendyslexic-nerd-font"
         - "font-overpass-nerd-font"
         - "font-profont-nerd-font"
         - "font-proggy-clean-tt-nerd-font"
