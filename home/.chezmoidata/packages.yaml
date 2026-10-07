@@ -70,9 +70,7 @@ packages:
       - "aws/tap"
       - "graalvm/tap"
       - "hashicorp/tap"
-      - "homebrew/bundle"
       - "xwmx/taps"
-      - "sdkman/tap"
     brews:
       default:
         - "asciinema"
@@ -81,7 +79,6 @@ packages:
         - "bitwarden-cli"
         - "bluetoothconnector"
         - "btop"
-        - "caarlos0/tap/timer"
         - "cocoapods"
         - "coreutils"
         - "cowsay"
@@ -127,7 +124,6 @@ packages:
         - "ripgrep"
         - "rmlint"
         - "ruby"
-        - "sdkman-cli"
         - "smartmontools"
         - "sqlite"
         - "ssh-copy-id"
@@ -139,8 +135,6 @@ packages:
         - "vifm"
         - "watch"
         - "wget"
-        - "xwmx/taps/nb"
-        - "youtube-dl"
         - "yq"
         - "zplug"
       personal:
@@ -203,7 +197,6 @@ packages:
         - "font-ubuntu-mono-nerd-font"
         - "font-ubuntu-nerd-font"
         - "font-victor-mono-nerd-font"
-        - "graalvm-ce-lts-java11"
         - "kitty"
         - "slack"
         - "spotify"
